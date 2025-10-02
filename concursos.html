@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concursos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Bras%C3%A3o_CBM_SP.PNG/1200px-Bras%C3%A3o_CBM_SP.PNG" type="image/png">
+</head>
+<body class="bg-gradient-to-b from-slate-50 via-white to-red-50 text-slate-900">
+
+  <!-- Header -->
+<!-- Header -->
+<header class="w-full backdrop-blur-sm bg-white/60 border-b border-slate-200 fixed top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo e título -->
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+          <!-- CBMESP Logo clicável -->
+          <a href="index.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Bras%C3%A3o_CBM_SP.PNG/1200px-Bras%C3%A3o_CBM_SP.PNG" 
+                 alt="CBMESP Logo" 
+                 class="h-10 w-10 rounded-full shadow-md">
+          </a>
+          <div>
+            <div class="font-semibold text-lg">Corpo de Bombeiros do Estado de São Paulo</div>
+            <div class="text-xs text-slate-600">Salvar vidas é a nossa missão, voltar é o nosso compromisso, você é o nosso maior valor</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu -->
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-700">
+        <a href="index.html#servicos" class="hover:underline">Serviços</a>
+        <a href="concursos.html" class="hover:underline">Concursos</a>
+        <a href="index.html#contato" class="hover:underline">Contato</a>
+        <a href="index.html#sobre" class="hover:underline">Sobre</a>
+      </nav>
+
+      <!-- Botão ligar -->
+      <div class="flex items-center gap-4">
+        <a href="tel:193" class="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-2xl shadow hover:shadow-lg active:scale-95 transition">📞 Ligar 193</a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+  <main class="pt-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Hero -->
+    <section class="text-center py-16">
+      <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">CONCURSOS</h1>
+      <p class="text-slate-700 max-w-xl mx-auto">Confira as informações sobre os concursos em andamento, datas importantes, requisitos e instruções para inscrição.</p>
+    </section>
+
+    <!-- Concurso Detalhes -->
+    <section class="py-12">
+      <div id="concursosContainer" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Os concursos serão gerados aqui pelo JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-sm text-slate-600">
+    © 2025 Corpo de Bombeiros do Estado de São Paulo — Todos os direitos reservados (Site Ficcional)
+  </footer>
+
+  <script>
+    // Array de concursos - modular
+    const concursos = [
+    {
+        nome: 'Concurso Oficial Bombeiro Militar 2025',
+        inscricoes: 'até 30/10/2025',
+        cargo: 'Aspirante à Oficial QOBM',
+        requisitos: 'Ensino médio completo, idade entre 18 e 30 anos, aptidão física e psicológica.',
+        descricao: 'O concurso Oficial Bombeiro Militar 2025 visa selecionar candidatos para formação de novos oficiais bombeiros militares em todo o Estado de São Paulo, garantindo treinamento, proteção civil e atendimento emergencial à população.',
+        edital: 'https://docs.google.com/document/d/1juUki7m2xRmewY576DIVvy5mwHbqMibboFafGIsalGg/edit?usp=sharing', // link para edital
+        inscreva: '#' // link para inscrição
+      },  
+    {
+        nome: 'Concurso Soldado Bombeiro Militar 2025',
+        inscricoes: 'até 30/10/2025',
+        cargo: 'Soldado QPBM',
+        requisitos: 'Ensino médio completo, idade entre 18 e 30 anos, aptidão física e psicológica.',
+        descricao: 'O concurso CBMESP 2025 visa selecionar candidatos para formação de novos soldados bombeiros militares em todo o Estado de São Paulo, garantindo treinamento, proteção civil e atendimento emergencial à população.',
+        edital: 'https://docs.google.com/document/d/1juUki7m2xRmewY576DIVvy5mwHbqMibboFafGIsalGg/edit?usp=sharing', // link para edital
+        inscreva: '#' // link para inscrição
+      }
+      // Adicione mais concursos aqui se quiser
+    ];
+
+    const container = document.getElementById('concursosContainer');
+
+    concursos.forEach(concurso => {
+      const div = document.createElement('div');
+      div.className = 'bg-white p-8 rounded-2xl shadow-lg flex flex-col justify-between';
+      div.innerHTML = `
+        <div>
+          <h2 class="text-2xl font-bold mb-2">${concurso.nome}</h2>
+          <p class="text-slate-600 mb-1"><strong>Inscrições:</strong> ${concurso.inscricoes}</p>
+          <p class="text-slate-600 mb-1"><strong>Cargo:</strong> ${concurso.cargo}</p>
+          <p class="text-slate-600 mb-1"><strong>Requisitos:</strong> ${concurso.requisitos}</p>
+          <p class="text-slate-600 mb-4"><strong>Descrição:</strong> ${concurso.descricao}</p>
+        </div>
+        <div class="flex gap-4 mt-2">
+          <a href="${concurso.edital}" class="flex-1 text-center bg-slate-200 text-slate-900 px-5 py-3 rounded-2xl shadow hover:bg-slate-300 transition">Edital</a>
+          <a href="${concurso.inscreva}" class="flex-1 text-center bg-red-600 text-white px-5 py-3 rounded-2xl shadow hover:bg-red-700 transition">Inscreva-se</a>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
